@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="email.js"></script>
     <title>EmailJS Test</title>
  
 </head>
@@ -21,6 +20,14 @@
     </form>
 
     <script>
+        const toggleBtn = document.getElementById("toggle-button");
+        const body = document.body;
+
+        function toggleTheme() {
+             body.classList.toggle("dark");
+    }
+
+toggleBtn.addEventListener('click', toggleTheme);
         // Inicializálja az EmailJS-t a saját Public Key-jével
         (function() {
             emailjs.init("YETrUGaMrOn8IBZWs"); // Cserélje ki a saját nyilvános kulcsára
