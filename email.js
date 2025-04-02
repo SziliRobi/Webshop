@@ -1,12 +1,35 @@
-function sendMail(){
-    let parms = {
-        name : document.getElementById("name").value,
-        email : document.getElementById("email").value,
-        subject : document.getElementById("subject").value,
-        message : document.getElementById("message").value,
-    }
+const toggleBtn = document.getElementById("toggle-button");
+const body = document.body;
 
-    emailjs.send("service_7jtkw38","template_qjj8n3p",parms).then(alert("Email Sent!"))
-
-
+function toggleTheme() {
+  body.classList.toggle("dark");
 }
+
+toggleBtn.addEventListener('click', toggleTheme);
+
+// Téma mentése
+function saveTheme(theme) {
+    localStorage.setItem('theme', theme);
+  }
+  
+  // Téma betöltése
+  function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark');
+    }
+  }
+  
+  // Frissítés a gombra kattintva
+  function toggleTheme() {
+    if (body.classList.contains('dark')) {
+      body.classList.remove('dark');
+      saveTheme('light');
+    } else {
+      body.classList.add('dark');
+      saveTheme('dark');
+    }
+  }
+  
+  loadTheme();
+  
