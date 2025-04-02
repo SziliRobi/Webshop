@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="email.js"></script>
     <title>EmailJS Test</title>
- 
 </head>
 <body>
     <button id="toggle-button">Váltás</button>
 
-</section>
     <form id="contact-form" onsubmit="event.preventDefault(); sendEmail();">
         <input type="text" id="from_name" placeholder="Your Name" required />
         <input type="email" id="reply_to" placeholder="Your Email" required />
@@ -18,38 +18,5 @@
         <textarea id="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send Email</button>
     </form>
-
-    <script>
-        const toggleBtn = document.getElementById("toggle-button");
-        const body = document.body;
-
-        function toggleTheme() {
-             body.classList.toggle("dark");
-    }
-
-toggleBtn.addEventListener('click', toggleTheme);
-        // Inicializálja az EmailJS-t a saját Public Key-jével
-        (function() {
-            emailjs.init("YETrUGaMrOn8IBZWs"); // Cserélje ki a saját nyilvános kulcsára
-        })();
-
-        function sendEmail() {
-            const templateParams = {
-                from_name: document.getElementById('from_name').value,
-                to_name: document.getElementById('to_name').value,
-                message: document.getElementById('message').value,
-                reply_to: document.getElementById('reply_to').value,
-            };
-
-            emailjs.send('service_7jtkw38', 'template_qjj8n3p', templateParams)
-                .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Email sent successfully!');
-                }, (error) => {
-                    console.log('FAILED...', error);
-                    alert('Failed to send email. Please try again later.');
-                });
-        }
-    </script>
 </body>
 </html>

@@ -1,9 +1,26 @@
 :root {
     --bg: #fafaf3;
     --color: #0A0A0A;
-  }
-  .dark {
+}
+
+.dark {
     --bg: #0A0A0A;
     --color: #ffffff;
-  }
-  
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--color);
+}
+
+input, textarea {
+    background-color: var(--bg);
+    color: var(--color);
+    border: 1px solid var(--color);
+}
+
+button {
+    background-color: var(--bg);
+    color: var(--color);
+    border: 1px solid var(--color);
+}
